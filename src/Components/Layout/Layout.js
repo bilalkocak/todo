@@ -1,10 +1,14 @@
 import React from 'react';
-import {Layout as AntdLayout} from 'antd';
+import {Layout as AntdLayout, Result, Button} from 'antd';
+import {Route, Switch, useHistory} from 'react-router-dom';
+import Collections from "../Page/Collections";
+
 import './Layout.scss'
 
 const {Header, Content} = AntdLayout;
 
 const Layout = () => {
+    const history = useHistory();
     return (
         <AntdLayout className="customLayout">
             <Header>
@@ -14,7 +18,15 @@ const Layout = () => {
                 </div>
             </Header>
             <Content className={"layout-content"}>
-sadasd
+                <Switch>
+                    <Route path="/" exact component={Collections}/>
+                    <Route render={() => <Result
+                        status="404"
+                        title="404"
+                        subTitle="Sorry, the page you visited does not exist."
+                        extra={<Button onClick={() => history.push('/')} type="primary">Back Home</Button>}
+                    />}/>
+                </Switch>
             </Content>
         </AntdLayout>
     );
