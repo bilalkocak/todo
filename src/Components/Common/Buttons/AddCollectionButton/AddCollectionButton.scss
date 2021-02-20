@@ -1,0 +1,20 @@
+.addCollectionButton {
+  border: 2px solid #272832;
+  border-radius: 15px;
+  padding: 15px 10px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-weight: bold;
+  height: 60px;
+  box-sizing: border-box;
+
+  transition: background-color 500ms ease;
+
+  &:hover {
+    background-color: #272832;
+    cursor: pointer;
+}
+}
