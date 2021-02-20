@@ -1,0 +1,16 @@
+@import "src/styles/Colors.scss";
+
+body {
+  background: $primaryBackground;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .layout-content {
+    background: $primaryBackground;
+    padding: 0 50px
+  }
+
+}
