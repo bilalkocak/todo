@@ -1,7 +1,7 @@
 import React from 'react';
 import {Layout as AntdLayout, Result, Button} from 'antd';
 import {Route, Switch, useHistory} from 'react-router-dom';
-import Collections from "../Page/Collections";
+import Collections from "../Page/Collections/Collections";
 
 import './Layout.scss'
 
@@ -17,7 +17,7 @@ const Layout = () => {
                     <div>profil</div>
                 </div>
             </Header>
-            <Content className={"layout-content"}>
+            <Content className={"layoutContent"}>
                 <Switch>
                     <Route path="/" exact component={Collections}/>
                     <Route render={() => <Result

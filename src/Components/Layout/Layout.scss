@@ -8,9 +8,17 @@ body {
     justify-content: space-between;
   }
 
-  .layout-content {
+  .customLayout{
     background: $primaryBackground;
-    padding: 0 50px
+
+    .layoutContent {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      max-width: 740px;
+      margin: auto;
+    }
   }
+
 
 }
