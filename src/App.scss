@@ -1,0 +1,30 @@
+@import "src/styles/Common";
+
+body {
+  .ant-popover {
+    .ant-popover-content{
+      border-radius: 10px !important;
+    }
+    .ant-popover-inner-content {
+      border-radius: 10px !important;
+    }
+
+    border-radius: 10px !important;
+
+    .ant-popover-arrow {
+      border-top-color: $primaryBackground !important;
+      border-left-color: $primaryBackground !important;
+    }
+
+    * {
+      transition: background-color 500ms ease;
+      background-color: $primaryBackground;
+      border-color: $primaryBackground;
+
+      &:hover{
+        background-color: $buttonHover;
+        cursor: pointer;
+      }
+    }
+  }
+}

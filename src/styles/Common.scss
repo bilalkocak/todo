@@ -1,0 +1,18 @@
+@import "src/styles/Colors";
+
+.customButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: $secondaryBackground;
+  transition: background-color 500ms ease;
+  height: 60px;
+  border-radius: 15px;
+  box-sizing: border-box;
+
+
+  &:hover {
+    background-color: $buttonHover;
+  }
+}

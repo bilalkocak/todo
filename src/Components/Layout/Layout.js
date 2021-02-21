@@ -2,6 +2,7 @@ import React from 'react';
 import {Layout as AntdLayout, Result, Button} from 'antd';
 import {Route, Switch, useHistory} from 'react-router-dom';
 import Collections from "../Page/Collections/Collections";
+import Detail from "../Page/Detail/Detail";
 
 import './Layout.scss'
 
@@ -20,6 +21,7 @@ const Layout = () => {
             <Content className={"layoutContent"}>
                 <Switch>
                     <Route path="/" exact component={Collections}/>
+                    <Route path="/detail/:id" exact component={Detail}/>
                     <Route render={() => <Result
                         status="404"
                         title="404"

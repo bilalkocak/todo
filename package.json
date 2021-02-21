@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.5.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -14,11 +15,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start & npm run styles",
+    "build": "react-scripts build & npm run styles",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "update-theme": "lessc ./src/styles/main.less ./src/styles/css/antd.css --js"
+    "styles": "lessc ./src/styles/main.less ./src/styles/css/antd.css --js"
   },
   "eslintConfig": {
     "extends": [

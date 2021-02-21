@@ -1,0 +1,77 @@
+@import "src/styles/Colors";
+
+.taskItemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 10px 15px;
+  height: 50px;
+  margin: 10px 0;
+  background-color: $secondaryBackground;
+  border-radius: 15px;
+  user-select: none;
+
+  .taskItemContainerLeft {
+    display: flex;
+    width: 90%;
+    cursor: pointer;
+  }
+
+  .taskItemContainerRight {
+    display: flex;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .taskItemCheckbox {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    border: 2px solid $primaryPink;
+    border-radius: 15%;
+    background-color: $primaryBackground;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-right: 20px;
+
+    &.active {
+      background-color: $primaryPink;
+    }
+  }
+}
+
+.addTaskInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid $buttonHover;
+  padding: 10px 20px 10px 15px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: 10px 0;
+
+  input {
+    background-color: $primaryBackground;
+    border: none;
+    width: 95%;
+    height: 30px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .addTaskIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15%;
+    background-color: $primaryPink;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+  }
+}
+

@@ -5,7 +5,7 @@ import './AddCollectionButton.scss'
 
 const AddCollectionButton = ({text, width}) => {
     return (
-        <div className={'addCollectionButton'} style={{width: width ? width : ''}}>
+        <div className={'customButton addCollectionButton'} style={{width: width ? width : ''}}>
             {text}
         </div>
     );
