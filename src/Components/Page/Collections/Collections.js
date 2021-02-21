@@ -17,6 +17,8 @@ const emptyState = () => {
 }
 const Collections = () => {
     const [collection, setCollection] = useState(1)
+
+
     return (
         <div className={'collectionsContainer'}>
             {

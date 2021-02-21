@@ -1,40 +1,44 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TaskItem from "../TaskItem/TaskItem";
 import AddTask from "../TaskItem/AddTask";
 import {Typography} from "antd";
+import {fetchTasks} from "../../store/actions/task";
+import {useDispatch, useSelector} from "react-redux";
 
 const {Title} = Typography;
 
 
 const TaskList = () => {
-    const [tasks, setTasks] = useState([
-        {
-            isActive: false,
-            text: 'çöp at'
-        },
-        {
-            isActive: true,
-            text: 'poşet al'
-        }]);
+    const dispatch = useDispatch();
+    const tasks = useSelector(state => state.task.tasks)
+
+    useEffect(() => {
+        dispatch(fetchTasks())
+    }, [])
+
     return (
         <div>
-            <Title level={5}>Tasks - 0</Title>
-
-            <AddTask/>
             {
-                tasks.filter(task => task.isActive === false).map((task) => {
-                    return (
-                        <TaskItem task={task}/>
-                    )
-                })
-            }
-            <Title level={5}>Completed - 4</Title>
-            {
-                tasks.filter(task => task.isActive === true).map((task) => {
-                    return (
-                        <TaskItem task={task}/>
-                    )
-                })
+                tasks && (
+                    <>
+                        <Title level={5}>Tasks - {tasks.length}</Title>
+                        <AddTask/>
+                        {
+                            tasks.filter(task => task.isDone === false).map((task) => {
+                                return (
+                                    <TaskItem key={'task-' + task.id} task={task}/>
+                                )
+                            })
+                        }
+                        <Title level={5}>Completed - 4</Title>
+                        {
+                            tasks.filter(task => task.isDone === true).map((task) => {
+                                return (
+                                    <TaskItem key={'task-' + task.id} task={task}/>
+                                )
+                            })
+                        }</>
+                )
             }
 
         </div>
