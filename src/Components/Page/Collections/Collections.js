@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Typography} from 'antd';
 import CollectionItem from "../../CollectionItem/CollectionItem";
-import './Collections.scss'
 import AddCollectionButton from "../../Common/Buttons/AddCollectionButton/AddCollectionButton";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCollection} from "../../../store/actions/collections";
+
+import './Collections.scss'
 
 const {Title} = Typography;
 
@@ -16,17 +19,25 @@ const emptyState = () => {
     )
 }
 const Collections = () => {
-    const [collection, setCollection] = useState(1)
 
+    const dispatch = useDispatch();
+    const collections = useSelector(state => state.collections.collections)
 
+    useEffect(() => {
+        dispatch(fetchCollection())
+    }, [])
     return (
         <div className={'collectionsContainer'}>
             {
-                collection ? (
+                collections.length > 0 ? (
                     <>
                         <Title>Collections</Title>
                         <div className="collections">
-                            <CollectionItem/>
+                            {
+                                collections.map(collection =>
+                                    <CollectionItem collection={collection}/>
+                                )
+                            }
                             <AddCollectionButton text={'+ Add Collection'} width={330}/>
                         </div>
                     </>
