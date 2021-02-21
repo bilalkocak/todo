@@ -8,7 +8,7 @@ export function* fetchTask(action) {
     try {
         const {id} = action;
         const response = yield call(fetchTasksApi, id);
-        yield put(fetchTasksResult(false, response.data.tasks));
+        yield put(fetchTasksResult(false, response.data));
     } catch (e) {
         yield put(fetchTasksResult(true));
 
