@@ -1,7 +1,7 @@
 import {task as type} from "../actionTypes";
 
 const initialState = {
-    tasks: [{isDone:true,text:"sadas"}]
+    tasks: []
 };
 
 export default (state = initialState, action) => {

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import TaskItem from "../TaskItem/TaskItem";
 import AddTask from "../TaskItem/AddTask";
 import {Typography} from "antd";
-import {fetchTasks} from "../../store/actions/task";
+import {fetchTasks} from "../../store/actions/tasks";
 import {useDispatch, useSelector} from "react-redux";
 
 const {Title} = Typography;
@@ -10,10 +10,10 @@ const {Title} = Typography;
 
 const TaskList = () => {
     const dispatch = useDispatch();
-    const tasks = useSelector(state => state.task.tasks)
+    const tasks = useSelector(state => state.tasks.tasks)
 
     useEffect(() => {
-        dispatch(fetchTasks())
+        dispatch(fetchTasks(1))
     }, [])
 
     return (
