@@ -5,7 +5,8 @@ const AddTask = () => {
     return (
         <div>
             <div className={`addTaskInput`}>
-                <div className={'addTaskIcon'}><PlusOutlined /></div><input placeholder={'Add task'} type="text"/>
+                <div className={'addTaskIcon'}><PlusOutlined/></div>
+                <input placeholder={'Add task'} type="text"/>
             </div>
         </div>
     );

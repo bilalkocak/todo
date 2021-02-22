@@ -2,7 +2,8 @@ import {collection as type} from "../actionTypes";
 import {message} from "antd";
 
 const initialState = {
-    collections: []
+    collections: [],
+    currentCollection: {}
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +15,14 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 collections: action.collections,
+            };
+        case type.fetchByIdResult:
+            if (action.hasError) {
+                return state;
+            }
+            return {
+                ...state,
+                currentCollection: action.collection,
             };
         case type.addResult:
             if (action.hasError) {
