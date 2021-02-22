@@ -4,6 +4,7 @@ import {task as type} from "../actionTypes";
 export const setCurrentTask = (task) => {
     return {type: type.setCurrent, task}
 }
+
 export const fetchTasksResult = (hasError, tasks) => {
     return {type: type.fetchResult, hasError, tasks}
 }

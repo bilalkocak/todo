@@ -3,7 +3,7 @@ import {message} from "antd";
 
 const initialState = {
     collections: [],
-    currentCollection: {}
+    currentCollection: null
 };
 
 export default (state = initialState, action) => {
@@ -34,6 +34,26 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 collections: _collections,
+            };
+        case type.setCurrent:
+            return {
+                ...state,
+                currentCollection: action.collection,
+            };
+        case type.updateResult:
+            if (action.hasError) {
+                message.error({content: 'Collection could not be updated.', key: type.update, duration: 2});
+                return state;
+            }
+            message.success({content: 'Collection updated.', key: type.update, duration: 2});
+
+            let collectionList = [...state.collections]
+            let filtered = collectionList.filter((collection) => collection.id !== action.collection.id);
+            collectionList = [...filtered, action.collection]
+            return {
+                ...state,
+                collections: collectionList,
+                currentCollection: action.collection
             };
         default:
             return state;

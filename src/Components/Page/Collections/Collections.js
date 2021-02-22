@@ -1,19 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import {Typography} from 'antd';
 import CollectionItem from "../../CollectionItem/CollectionItem";
-import AddCollectionButton from "../../Common/Buttons/AddCollectionButton/AddCollectionButton";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCollection, addCollection} from "../../../store/actions/collections";
 import CollectionModal from "../../Modal/CollectionModal";
 
 import './Collections.scss'
+import {collectionModalModes} from "../../../constant";
 
 const {Title} = Typography;
 
 const Collections = () => {
     const dispatch = useDispatch();
     const collections = useSelector(state => state.collections.collections)
+    const currentCollection = useSelector(state => state.collections.currentCollection)
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
+    const toggleModal = () => {
+        setIsModalVisible(!isModalVisible)
+    }
     useEffect(() => {
         dispatch(fetchCollection())
     }, [])
@@ -37,7 +42,12 @@ const Collections = () => {
                     <Title level={2}>You have no collections.</Title>
                 )
             }
-            <CollectionModal title={'Add Collection'} submit={addCollection}/>
+            {
+                currentCollection &&
+                <CollectionModal collection={currentCollection} title={'Add Collection'} isModalVisible={isModalVisible}
+                                 toggle={toggleModal}
+                                 mode={collectionModalModes.add} submit={addCollection}/>
+            }
 
         </div>
     );

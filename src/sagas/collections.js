@@ -1,8 +1,14 @@
 import {call, put, takeLatest, delay} from "redux-saga/effects";
 import {collection as type} from "../store/actionTypes";
-import {fetchCollectionsApi, addCollectionsApi, fetchCollectionByIdApi} from "../api/webApi";
-import {fetchCollectionResult, addCollectionResult, fetchCollectionByIdResult} from "../store/actions/collections"
+import {fetchCollectionsApi, addCollectionsApi, fetchCollectionByIdApi, updateCollectionApi} from "../api/webApi";
+import {
+    fetchCollectionResult,
+    addCollectionResult,
+    fetchCollectionByIdResult,
+    updateCollectionResult
+} from "../store/actions/collections"
 import {message} from "antd";
+import {updateTaskResult} from "../store/actions/tasks";
 
 export function* fetchCollections() {
     try {
@@ -36,8 +42,21 @@ export function* addCollections(action) {
     }
 }
 
+export function* updateCollection(action) {
+    yield message.loading({content: 'Updating collection', key: type.update});
+    try {
+        const {data} = action;
+        const response = yield call(updateCollectionApi, data);
+        yield put(updateCollectionResult(false, response.data));
+    } catch (e) {
+        console.log(e);
+        yield put(updateCollectionResult(true));
+    }
+}
+
 export default [
     takeLatest(type.fetch, fetchCollections),
     takeLatest(type.add, addCollections),
     takeLatest(type.fetchById, fetchCollectionById),
+    takeLatest(type.update, updateCollection),
 ]

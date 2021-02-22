@@ -1,16 +1,33 @@
-.detailContainer{
-  .detailHeader{
+.detailContainer {
+  .detailHeader {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 40px;
-    .backButton{
-      margin-right: 40px;
-      width: 48px;
-      height: 48px;
-      font-size: 24px;
+
+    &Left {
+      display: flex;
+
+      .backButton {
+        margin-right: 40px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+      }
+
+      h3 {
+        line-height: 48px;
+      }
     }
-    h3{
-      line-height: 48px;
+
+    &Right {
+      display: flex;
+      align-items: center;
+      .editButton {
+        width: 40px;
+        height: 40px;
+      }
     }
+
   }
 }

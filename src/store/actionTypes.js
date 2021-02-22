@@ -16,5 +16,8 @@ export const collection = {
     fetchById: "FETCH_COLLECTION_BY_ID",
     fetchByIdResult: 'FETCH_COLLECTION_RESULT',
     addResult: 'ADD_COLLECTION_RESULT',
-    add: "ADD_COLLECTION"
+    add: "ADD_COLLECTION",
+    setCurrent: 'SET_CURRENT_COLLECTION',
+    update: 'UPDATE_COLLECTION',
+    updateResult: 'UPDATE_COLLECTION_RESULT',
 }

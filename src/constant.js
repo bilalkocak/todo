@@ -10,4 +10,15 @@ export const collectionColors = [
     "#70c4be"
 ];
 
+export const collectionModalModes = {
+    edit: {
+        name: "edit",
+        submitText: "Update"
+    },
+    add: {
+        name: "add",
+        submitText: "Save"
+    }
+}
+
 
