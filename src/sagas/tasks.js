@@ -1,7 +1,7 @@
 import {task as type} from "../store/actionTypes";
 import {put, call, takeLatest} from 'redux-saga/effects'
-import {addTasksApi, fetchTasksApi, updateTaskApi} from "../api/webApi";
-import {fetchTasksResult, addTaskResult, updateTaskResult} from "../store/actions/tasks";
+import {addTasksApi, deleteTaskApi, fetchTasksApi, updateTaskApi} from "../api/webApi";
+import {fetchTasksResult, addTaskResult, updateTaskResult, deleteTaskResult} from "../store/actions/tasks";
 import {message} from "antd";
 
 
@@ -40,8 +40,21 @@ export function* updateTask(action) {
     }
 }
 
+export function* deleteTask(action) {
+    yield message.loading({content: 'Deleting task', key: type.delete});
+    try {
+        const {id} = action;
+        yield call(deleteTaskApi, id);
+        yield put(deleteTaskResult(false, id));
+    } catch (e) {
+        console.log(e);
+        yield put(deleteTaskResult(true));
+    }
+}
+
 export default [
     takeLatest(type.fetch, fetchTask),
     takeLatest(type.add, addTask),
     takeLatest(type.update, updateTask),
+    takeLatest(type.delete, deleteTask),
 ]

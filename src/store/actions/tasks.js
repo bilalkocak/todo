@@ -25,3 +25,11 @@ export const updateTask = (data) => {
     return {type: type.update, data}
 }
 
+export const deleteTaskResult = (hasError, id) => {
+    return {type: type.deleteResult, hasError, id}
+}
+
+export const deleteTask = (id) => {
+    return {type: type.delete, id}
+}
+

@@ -16,7 +16,7 @@ export const updateTaskApi = (data) => {
 }
 
 export const deleteTaskApi = (id) => {
-    const url = `https://riteg-todo.herokuapp.com/collections/${id}`;
+    const url = `https://riteg-todo.herokuapp.com/todos/${id}`;
     return axios.delete(url)
 }
 

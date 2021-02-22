@@ -4,8 +4,9 @@ export const task = {
     add: "ADD_TASK",
     addResult: 'ADD_TASK_RESULT',
     update: 'UPDATE_TASK',
-    updateResult: 'UPDATE_TASK_RESULT'
-
+    updateResult: 'UPDATE_TASK_RESULT',
+    delete: 'DELETE_TASK',
+    deleteResult: 'DELETE_TASK_RESULT'
 }
 
 export const collection = {

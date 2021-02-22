@@ -42,6 +42,19 @@ export default (state = initialState, action) => {
                 ...state,
                 tasks: taskList,
             };
+        case type.deleteResult:
+            if (action.hasError) {
+                message.error({content: 'Task could not be deleted.', key: type.delete, duration: 2});
+                return state;
+            }
+            message.success({content: 'Task deleted.', key: type.delete, duration: 2});
+
+            let deletedTask = state.tasks.filter((task) => task.id !== action.id);
+
+            return {
+                ...state,
+                tasks: deletedTask,
+            };
         default:
             return state;
     }

@@ -2,21 +2,20 @@ import React from 'react';
 import './TaskItem.scss'
 import {CheckOutlined, DeleteOutlined} from "@ant-design/icons";
 import PropTypes from "prop-types";
-import {updateTask} from "../../store/actions/tasks";
+import {updateTask, deleteTask} from "../../store/actions/tasks";
 import AddCollectionButton from "../Common/Buttons/AddCollectionButton/AddCollectionButton";
 import {useDispatch} from "react-redux";
 
 const TaskItem = ({task}) => {
     const dispatch = useDispatch();
 
-    const deleteTask = () => {
-        // TODO delete task
+    const _deleteTask = () => {
+        dispatch(deleteTask(task.id))
     }
 
     const toggleCheck = () => {
         let _task = {...task}
         _task.isDone = !task.isDone
-        console.log(_task);
         dispatch(updateTask(_task))
     }
 
@@ -31,7 +30,7 @@ const TaskItem = ({task}) => {
                 <div>{task.text}</div>
             </div>
 
-            <div className={'taskItemContainerRight'} onClick={() => deleteTask}>
+            <div className={'taskItemContainerRight'} onClick={() => _deleteTask()}>
                 <DeleteOutlined/>
             </div>
         </div>
