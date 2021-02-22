@@ -8,7 +8,6 @@ import {
     updateCollectionResult
 } from "../store/actions/collections"
 import {message} from "antd";
-import {updateTaskResult} from "../store/actions/tasks";
 
 export function* fetchCollections() {
     try {
@@ -32,7 +31,7 @@ export function* fetchCollectionById(action) {
 }
 
 export function* addCollections(action) {
-    yield message.loading({content: 'Creating collection', key: type.add});
+    message.loading({content: 'Creating collection', key: type.add});
     try {
         const {data} = action;
         const response = yield call(addCollectionsApi, data);
@@ -43,7 +42,7 @@ export function* addCollections(action) {
 }
 
 export function* updateCollection(action) {
-    yield message.loading({content: 'Updating collection', key: type.update});
+    message.loading({content: 'Updating collection', key: type.update});
     try {
         const {data} = action;
         const response = yield call(updateCollectionApi, data);

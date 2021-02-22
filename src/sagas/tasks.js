@@ -17,7 +17,7 @@ export function* fetchTask(action) {
 }
 
 export function* addTask(action) {
-    yield message.loading({content: 'Creating task', key: type.add});
+    message.loading({content: 'Creating task', key: type.add});
     try {
         const {data} = action;
         const response = yield call(addTasksApi, data);
@@ -29,7 +29,7 @@ export function* addTask(action) {
 }
 
 export function* updateTask(action) {
-    yield message.loading({content: 'Updating task', key: type.update});
+    message.loading({content: 'Updating task', key: type.update});
     try {
         const {data} = action;
         const response = yield call(updateTaskApi, data);
@@ -41,7 +41,7 @@ export function* updateTask(action) {
 }
 
 export function* deleteTask(action) {
-    yield message.loading({content: 'Deleting task', key: type.delete});
+    message.loading({content: 'Deleting task', key: type.delete});
     try {
         const {id} = action;
         yield call(deleteTaskApi, id);
