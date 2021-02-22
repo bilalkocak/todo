@@ -45,6 +45,7 @@ const CollectionModal = ({title, submit}) => {
                 color: collectionColors[color]
             }))
             setData(initialData)
+            setColor(0)
             setIsModalVisible(false)
         } else {
             error()
