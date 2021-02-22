@@ -26,7 +26,7 @@ export function* fetchCollectionById(action) {
 }
 
 export function* addCollections(action) {
-    message.loading({content: 'Creating collection', key: type.add});
+    yield message.loading({content: 'Creating collection', key: type.add});
     try {
         const {data} = action;
         const response = yield call(addCollectionsApi, data);
