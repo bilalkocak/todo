@@ -2,14 +2,12 @@ import React, {useState, useEffect} from 'react';
 import TaskItem from "../TaskItem/TaskItem";
 import AddTask from "../TaskItem/AddTask";
 import {Typography} from "antd";
-import {fetchTasks} from "../../store/actions/tasks";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const {Title} = Typography;
 
 
 const TaskList = () => {
-    const dispatch = useDispatch();
     const tasks = useSelector(state => state.tasks.tasks)
 
 

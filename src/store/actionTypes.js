@@ -1,6 +1,9 @@
 export const task = {
     fetch: "FETCH_TASK",
     fetchResult: 'FETCH_TASK_RESULT',
+    add: "ADD_TASK",
+    addResult: 'ADD_TASK_RESULT'
+
 }
 
 export const collection = {

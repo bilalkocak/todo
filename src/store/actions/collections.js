@@ -1,5 +1,4 @@
 import {collection as type} from "../actionTypes";
-import {message} from "antd";
 
 
 export const fetchCollectionResult = (hasError, collections) => {
