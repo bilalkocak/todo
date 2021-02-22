@@ -3,18 +3,30 @@
 $modalBorderRadius: 8px;
 $popoverBorderRadius: 8px;
 body {
-  .ant-back-top{
-    *{
+  .ant-back-top {
+    * {
       border-radius: 100%;
     }
-    .ant-back-top-content{
+
+    .ant-back-top-content {
       background-color: $buttonBackground;
 
     }
   }
-  .ant-back-top-icon{
 
+  .ant-btn {
+    color: white;
   }
+
+  .ant-btn:hover, .ant-btn:focus, .ant-btn-dangerous:hover, .ant-btn-dangerous:focus {
+    background-color: transparent;
+    color: white;
+  }
+
+  .ant-btn:hover, .ant-btn:focus, :not(ant-btn-dangerous) {
+    border-color: white;
+  }
+
   .ant-message-notice-content {
     background-color: $buttonBackground;
   }

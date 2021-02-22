@@ -26,7 +26,6 @@ const CollectionModal = ({title, submit, mode, toggle, isModalVisible}) => {
 
     useEffect(() => {
         if (mode.name === collectionModalModes.edit.name && isModalVisible) {
-            console.log(12);
             setData(currentCollection)
             let index = collectionColors.indexOf(currentCollection.color)
             setColor(index)
