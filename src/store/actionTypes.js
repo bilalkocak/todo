@@ -2,7 +2,9 @@ export const task = {
     fetch: "FETCH_TASK",
     fetchResult: 'FETCH_TASK_RESULT',
     add: "ADD_TASK",
-    addResult: 'ADD_TASK_RESULT'
+    addResult: 'ADD_TASK_RESULT',
+    update: 'UPDATE_TASK',
+    updateResult: 'UPDATE_TASK_RESULT'
 
 }
 

@@ -17,3 +17,11 @@ export const addTask = (data) => {
     return {type: type.add, data}
 }
 
+export const updateTaskResult = (hasError, task) => {
+    return {type: type.updateResult, hasError, task}
+}
+
+export const updateTask = (data) => {
+    return {type: type.update, data}
+}
+

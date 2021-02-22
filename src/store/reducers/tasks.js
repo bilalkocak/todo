@@ -28,6 +28,20 @@ export default (state = initialState, action) => {
                 ...state,
                 tasks: _tasks,
             };
+        case type.updateResult:
+            if (action.hasError) {
+                message.error({content: 'Task could not be updated.', key: type.update, duration: 2});
+                return state;
+            }
+            message.success({content: 'Task updated.', key: type.update, duration: 2});
+
+            let taskList = [...state.tasks]
+            let filtered = taskList.filter((task) => task.id !== action.task.id);
+            taskList = [...filtered, action.task]
+            return {
+                ...state,
+                tasks: taskList,
+            };
         default:
             return state;
     }

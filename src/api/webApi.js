@@ -10,6 +10,11 @@ export const addTasksApi = (data) => {
     return axios.post(url, data)
 }
 
+export const updateTaskApi = (data) => {
+    const url = `https://riteg-todo.herokuapp.com/todos/${data.id}`;
+    return axios.put(url, data)
+}
+
 export const deleteTaskApi = (id) => {
     const url = `https://riteg-todo.herokuapp.com/collections/${id}`;
     return axios.delete(url)
