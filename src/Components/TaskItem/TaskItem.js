@@ -3,7 +3,6 @@ import './TaskItem.scss'
 import {CheckOutlined, EditOutlined, DeleteOutlined} from "@ant-design/icons";
 import PropTypes from "prop-types";
 import {updateTask, deleteTask, setCurrentTask} from "../../store/actions/tasks";
-import AddCollectionButton from "../Common/Buttons/AddCollectionButton/AddCollectionButton";
 import {useDispatch} from "react-redux";
 
 const TaskItem = ({task}) => {
@@ -46,7 +45,7 @@ const TaskItem = ({task}) => {
     );
 };
 
-AddCollectionButton.propTypes = {
+TaskItem.propTypes = {
     task: PropTypes.object.isRequired
 };
 export default TaskItem;
