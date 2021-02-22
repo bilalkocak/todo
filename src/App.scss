@@ -3,6 +3,18 @@
 $modalBorderRadius: 8px;
 $popoverBorderRadius: 8px;
 body {
+  .ant-back-top{
+    *{
+      border-radius: 100%;
+    }
+    .ant-back-top-content{
+      background-color: $buttonBackground;
+
+    }
+  }
+  .ant-back-top-icon{
+
+  }
   .ant-message-notice-content {
     background-color: $buttonBackground;
   }

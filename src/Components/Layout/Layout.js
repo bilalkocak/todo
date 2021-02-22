@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout as AntdLayout, Result, Button} from 'antd';
+import {Layout as AntdLayout, Result, Button, BackTop} from 'antd';
 import {Route, Switch, useHistory} from 'react-router-dom';
 import Collections from "../Page/Collections/Collections";
 import Detail from "../Page/Detail/Detail";
@@ -29,6 +29,7 @@ const Layout = () => {
                         extra={<Button onClick={() => history.push('/')} type="primary">Back Home</Button>}
                     />}/>
                 </Switch>
+                <BackTop/>
             </Content>
         </AntdLayout>
     );
