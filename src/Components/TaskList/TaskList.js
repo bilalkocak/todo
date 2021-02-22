@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import TaskItem from "../TaskItem/TaskItem";
 import AddTask from "../TaskItem/AddTask";
 import {Typography} from "antd";
 import {useSelector} from "react-redux";
+import TaskModal from "../Modal/TaskModal";
 
 const {Title} = Typography;
 
@@ -35,9 +36,11 @@ const TaskList = () => {
                         }</>
                 )
             }
+            <TaskModal/>
 
         </div>
     );
-};
+}
+;
 
 export default TaskList;

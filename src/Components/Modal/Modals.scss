@@ -1,26 +1,26 @@
 @import "src/styles/Colors";
 
-.collectionModalContent {
-  .collectionInput {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid $buttonBackground;
-    padding: 10px 20px 10px 15px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    margin: 10px 0;
-    width: 100%;
+.modalInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid $buttonBackground;
+  padding: 10px 20px 10px 15px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: 10px 0;
+  width: 100%;
 
-    &:hover {
-      border: 2px solid $inputHover;
-    }
-
-    &:focus {
-      outline: none;
-      border: 2px solid $inputHover;
-    }
+  &:hover {
+    border: 2px solid $inputHover;
   }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $inputHover;
+  }
+}
+.collectionModalContent {
 
   .collectionModalColor {
     display: flex;

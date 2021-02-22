@@ -1,8 +1,8 @@
 import React from 'react';
 import './TaskItem.scss'
-import {CheckOutlined, DeleteOutlined} from "@ant-design/icons";
+import {CheckOutlined, EditOutlined, DeleteOutlined} from "@ant-design/icons";
 import PropTypes from "prop-types";
-import {updateTask, deleteTask} from "../../store/actions/tasks";
+import {updateTask, deleteTask, setCurrentTask} from "../../store/actions/tasks";
 import AddCollectionButton from "../Common/Buttons/AddCollectionButton/AddCollectionButton";
 import {useDispatch} from "react-redux";
 
@@ -11,6 +11,10 @@ const TaskItem = ({task}) => {
 
     const _deleteTask = () => {
         dispatch(deleteTask(task.id))
+    }
+
+    const _editTask = () => {
+        dispatch(setCurrentTask(task))
     }
 
     const toggleCheck = () => {
@@ -30,8 +34,13 @@ const TaskItem = ({task}) => {
                 <div>{task.text}</div>
             </div>
 
-            <div className={'taskItemContainerRight'} onClick={() => _deleteTask()}>
-                <DeleteOutlined/>
+            <div className={'taskItemContainerRight'}>
+                <div className={'taskButton'} onClick={() => _editTask()}>
+                    <EditOutlined/>
+                </div>
+                <div className={'taskButton'} onClick={() => _deleteTask()}>
+                    <DeleteOutlined/>
+                </div>
             </div>
         </div>
     );

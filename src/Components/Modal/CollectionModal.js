@@ -63,9 +63,9 @@ const CollectionModal = ({title, submit}) => {
             <Modal footer={null} destroyOnClose={true} title={title} visible={isModalVisible} onCancel={handleCancel}>
                 <div className={'collectionModalContent'}>
                     <input type="text" placeholder={'My Collection'} name={'name'}
-                           onChange={(e) => onChangeData(e.target)} value={data.name} className={'collectionInput'}/>
+                           onChange={(e) => onChangeData(e.target)} value={data.name} className={'modalInput'}/>
                     <input type="text" placeholder={'Description'} name={'desc'}
-                           onChange={(e) => onChangeData(e.target)} value={data.desc} className={'collectionInput'}/>
+                           onChange={(e) => onChangeData(e.target)} value={data.desc} className={'modalInput'}/>
                     <div className="collectionModalColor">
                         {
                             collectionColors.map((_color, index) => {

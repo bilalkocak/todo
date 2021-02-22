@@ -19,8 +19,9 @@
 
   .taskItemContainerRight {
     display: flex;
-    width: 30px;
+    width: 40px;
     cursor: pointer;
+    justify-content: space-between;
   }
 
   .taskItemCheckbox {

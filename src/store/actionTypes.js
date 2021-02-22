@@ -6,7 +6,8 @@ export const task = {
     update: 'UPDATE_TASK',
     updateResult: 'UPDATE_TASK_RESULT',
     delete: 'DELETE_TASK',
-    deleteResult: 'DELETE_TASK_RESULT'
+    deleteResult: 'DELETE_TASK_RESULT',
+    setCurrent: 'SET_CURRENT_TASK'
 }
 
 export const collection = {

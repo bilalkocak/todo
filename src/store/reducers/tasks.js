@@ -3,7 +3,7 @@ import {message} from "antd";
 
 const initialState = {
     tasks: [],
-    currentTask: {}
+    currentTask: null
 };
 
 export default (state = initialState, action) => {
@@ -54,6 +54,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 tasks: deletedTask,
+            };
+        case type.setCurrent:
+            return {
+                ...state,
+                currentTask: action.task,
             };
         default:
             return state;
