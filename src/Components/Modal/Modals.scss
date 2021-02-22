@@ -1,0 +1,56 @@
+@import "src/styles/Colors";
+
+.collectionModalContent {
+  .collectionInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid $buttonBackground;
+    padding: 10px 20px 10px 15px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    width: 100%;
+
+    &:hover {
+      border: 2px solid $inputHover;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid $inputHover;
+    }
+  }
+
+  .collectionModalColor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .option {
+      border: 3px solid;
+      height: 50px;
+      width: 60px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.collectionModalFooter {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  button {
+    background-color: $buttonBackground;
+    width: 120px;
+    height: 50px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: $inputHover;
+    }
+  }
+}

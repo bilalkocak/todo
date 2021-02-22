@@ -14,3 +14,8 @@ export const fetchCollectionsApi = () => {
     const fetchAllTasksUrl = 'https://riteg-todo.herokuapp.com/collections';
     return axios.get(fetchAllTasksUrl)
 }
+
+export const addCollectionsApi = (data) => {
+    const fetchAllTasksUrl = 'https://riteg-todo.herokuapp.com/collections';
+    return axios.post(fetchAllTasksUrl, data)
+}

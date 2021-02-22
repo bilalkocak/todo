@@ -1,4 +1,5 @@
 import {collection as type} from "../actionTypes";
+import {message} from "antd";
 
 const initialState = {
     collections: []
@@ -13,6 +14,17 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 collections: action.collections,
+            };
+        case type.addResult:
+            if (action.hasError) {
+                message.error({content: 'Collection could not be created.', key: type.add, duration: 2});
+                return state;
+            }
+            message.success({content: 'Collection created.', key: type.add, duration: 2});
+            let _collections = [...state.collections, action.collection]
+            return {
+                ...state,
+                collections: _collections,
             };
         default:
             return state;

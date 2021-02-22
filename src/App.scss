@@ -1,15 +1,42 @@
 @import "src/styles/Common";
 
+$modalBorderRadius: 8px;
+$popoverBorderRadius: 8px;
 body {
-  .ant-popover {
-    .ant-popover-content{
-      border-radius: 10px !important;
-    }
-    .ant-popover-inner-content {
-      border-radius: 10px !important;
+  .ant-message-notice-content {
+    background-color: $buttonBackground;
+  }
+
+  .ant-modal-content {
+
+    .ant-modal-close, .ant-modal-close-x {
+      border-top-right-radius: $modalBorderRadius;
     }
 
-    border-radius: 10px !important;
+    .ant-modal-header {
+      border-bottom: none;
+      border-radius: $modalBorderRadius $modalBorderRadius 0 0;
+    }
+
+    .ant-modal-body {
+      border-radius: 0 0 $modalBorderRadius $modalBorderRadius
+    }
+
+    * {
+      background-color: $primaryBackground;
+    }
+  }
+
+  .ant-popover {
+    .ant-popover-content {
+      border-radius: $popoverBorderRadius !important;
+    }
+
+    .ant-popover-inner-content {
+      border-radius: $popoverBorderRadius !important;
+    }
+
+    border-radius: $popoverBorderRadius !important;
 
     .ant-popover-arrow {
       border-top-color: $primaryBackground !important;
@@ -21,8 +48,8 @@ body {
       background-color: $primaryBackground;
       border-color: $primaryBackground;
 
-      &:hover{
-        background-color: $buttonHover;
+      &:hover {
+        background-color: $buttonBackground;
         cursor: pointer;
       }
     }
