@@ -6,6 +6,7 @@ import {useHistory, useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from "react-redux";
 import TaskList from "../../TaskList/TaskList";
 import {fetchCollectionById} from "../../../store/actions/collections";
+import {fetchTasks} from "../../../store/actions/tasks";
 
 const {Title} = Typography;
 
@@ -18,6 +19,7 @@ const Detail = () => {
 
     useEffect(() => {
         dispatch(fetchCollectionById(id))
+        dispatch(fetchTasks(id))
     }, [])
     return (
         <div className={'detailContainer'}>

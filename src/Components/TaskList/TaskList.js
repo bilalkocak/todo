@@ -12,9 +12,6 @@ const TaskList = () => {
     const dispatch = useDispatch();
     const tasks = useSelector(state => state.tasks.tasks)
 
-    useEffect(() => {
-        dispatch(fetchTasks(1))
-    }, [])
 
     return (
         <div>
