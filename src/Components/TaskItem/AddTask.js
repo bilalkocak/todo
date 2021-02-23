@@ -22,7 +22,8 @@ const AddTask = () => {
         <div>
             <div className={`addTaskInput`}>
                 <div className={'addTaskIcon'}><PlusOutlined/></div>
-                <input onKeyDown={handleKeyDown} placeholder={'Add task'} onChange={(e) => onChange(e)} type="text"/>
+                <input onKeyDown={handleKeyDown} placeholder={'Add task'} value={text} onChange={(e) => onChange(e)}
+                       type="text"/>
             </div>
         </div>
     );
