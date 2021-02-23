@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Typography} from 'antd';
+import {Empty, Typography} from 'antd';
 import CollectionItem from "../../CollectionItem/CollectionItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCollection, addCollection} from "../../../store/actions/collections";
@@ -39,7 +39,11 @@ const Collections = () => {
                     </>
 
                 ) : (
-                    <Title level={2}>You have no collections.</Title>
+                    <div className={'emptyArea'}>
+                        <Empty description={''}/>
+                        <Title level={2}>You have no collections.</Title>
+                    </div>
+
                 )
             }
 
