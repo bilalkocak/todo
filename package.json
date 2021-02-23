@@ -21,8 +21,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start & npm run styles",
-    "build": "react-scripts build & npm run styles",
+    "start": "npm run styles & react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styles": "lessc ./src/styles/main.less ./src/styles/css/antd.css --js"
