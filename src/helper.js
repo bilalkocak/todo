@@ -29,7 +29,7 @@ export const motivationRate = (taskList) => {
         }
 
     })
-    return (total / count).toFixed(2);
+    return count === 0 ? 0 : (total / count).toFixed(2);
 }
 
 
