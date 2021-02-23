@@ -49,11 +49,11 @@ export default (state = initialState, action) => {
             }
             message.success({content: 'Task deleted.', key: type.delete, duration: 2});
 
-            let deletedTask = state.tasks.filter((task) => task.id !== action.id);
+            let undeletedTasks = state.tasks.filter((task) => task.id !== action.id);
 
             return {
                 ...state,
-                tasks: deletedTask,
+                tasks: undeletedTasks,
             };
         case type.setCurrent:
             return {

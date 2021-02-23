@@ -1,13 +1,21 @@
 import {call, put, takeLatest, delay} from "redux-saga/effects";
 import {collection as type} from "../store/actionTypes";
-import {fetchCollectionsApi, addCollectionsApi, fetchCollectionByIdApi, updateCollectionApi} from "../api/webApi";
+import {
+    fetchCollectionsApi,
+    addCollectionsApi,
+    fetchCollectionByIdApi,
+    updateCollectionApi,
+    deleteCollectionApi
+} from "../api/webApi";
 import {
     fetchCollectionResult,
     addCollectionResult,
     fetchCollectionByIdResult,
-    updateCollectionResult
+    updateCollectionResult,
+    deleteCollectionResult
 } from "../store/actions/collections"
 import {message} from "antd";
+import {deleteTaskResult} from "../store/actions/tasks";
 
 export function* fetchCollections() {
     try {
@@ -53,9 +61,23 @@ export function* updateCollection(action) {
     }
 }
 
+
+export function* deleteCollection(action) {
+    message.loading({content: 'Deleting collection', key: type.delete});
+    try {
+        const {id} = action;
+        yield call(deleteCollectionApi, id);
+        yield put(deleteCollectionResult(false, id));
+    } catch (e) {
+        console.log(e);
+        yield put(deleteCollectionResult(true));
+    }
+}
+
 export default [
     takeLatest(type.fetch, fetchCollections),
     takeLatest(type.add, addCollections),
     takeLatest(type.fetchById, fetchCollectionById),
     takeLatest(type.update, updateCollection),
+    takeLatest(type.delete, deleteCollection),
 ]

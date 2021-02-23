@@ -1,16 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {LeftOutlined, EditOutlined} from "@ant-design/icons";
+import {
+    LeftOutlined, DeleteOutlined, EditOutlined, ExclamationCircleOutlined
+} from "@ant-design/icons";
 import './Detail.scss'
-import {Typography} from "antd";
+import {Modal, Typography} from "antd";
 import {useHistory, useParams} from 'react-router-dom'
 import {collectionModalModes} from "../../../constant";
 import {useSelector, useDispatch} from "react-redux";
 import TaskList from "../../TaskList/TaskList";
-import {updateCollection, fetchCollectionById, setCurrentCollection} from "../../../store/actions/collections";
+import {
+    updateCollection,
+    fetchCollectionById,
+    setCurrentCollection,
+    deleteCollection
+} from "../../../store/actions/collections";
 import {fetchTasks} from "../../../store/actions/tasks";
 import CollectionModal from "../../Modal/CollectionModal";
 
 const {Title} = Typography;
+const {confirm} = Modal;
 
 const Detail = () => {
     const history = useHistory()
@@ -29,6 +37,25 @@ const Detail = () => {
         setIsModalVisible(!isModalVisible)
     }
 
+    const showDeleteConfirm = () => {
+        confirm({
+            title: 'Are you sure delete this collection?',
+            icon: <ExclamationCircleOutlined/>,
+            content: 'This collection will be deleted completely with own tasks .',
+            okText: 'Yes',
+            okType: 'danger',
+            cancelText: 'No',
+            onOk() {
+                dispatch(deleteCollection(collection.id))
+                history.push('/')
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
+    }
+
+
     useEffect(() => {
         dispatch(fetchCollectionById(id))
         dispatch(fetchTasks(id))
@@ -43,13 +70,16 @@ const Detail = () => {
                     <Title level={3}>{collection?.name}</Title>
                 </div>
                 <div className={'detailHeaderRight'}>
-                    <div className={'customButton editButton'} onClick={() => _editCollection()}>
+                    <div className={'customButton button'} onClick={() => _editCollection()}>
                         <EditOutlined/>
+                    </div>
+                    <div className={'customButton button'} onClick={() => showDeleteConfirm()}>
+                        <DeleteOutlined/>
                     </div>
                 </div>
             </div>
             <TaskList/>
-            <CollectionModal toggle={toggleModal}  isModalVisible={isModalVisible} mode={collectionModalModes.edit}
+            <CollectionModal toggle={toggleModal} isModalVisible={isModalVisible} mode={collectionModalModes.edit}
                              title={'Edit Collection'} submit={updateCollection}/>
         </div>
     );

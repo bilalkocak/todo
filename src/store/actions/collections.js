@@ -35,3 +35,11 @@ export const addCollectionResult = (hasError, collection) => {
 export const addCollection = (data) => {
     return {type: type.add, data}
 }
+
+export const deleteCollectionResult = (hasError, id) => {
+    return {type: type.deleteResult, hasError, id}
+}
+
+export const deleteCollection = (id) => {
+    return {type: type.delete, id}
+}

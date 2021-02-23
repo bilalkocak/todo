@@ -39,3 +39,8 @@ export const updateCollectionApi = (data) => {
     const url = `https://riteg-todo.herokuapp.com/collections/${data.id}`;
     return axios.put(url, data)
 }
+
+export const deleteCollectionApi = (id) => {
+    const url = `https://riteg-todo.herokuapp.com/collections/${id}`;
+    return axios.delete(url)
+}

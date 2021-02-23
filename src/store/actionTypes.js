@@ -20,4 +20,6 @@ export const collection = {
     setCurrent: 'SET_CURRENT_COLLECTION',
     update: 'UPDATE_COLLECTION',
     updateResult: 'UPDATE_COLLECTION_RESULT',
+    delete: 'DELETE_COLLECTION',
+    deleteResult: 'DELETE_COLLECTION_RESULT',
 }

@@ -55,6 +55,19 @@ export default (state = initialState, action) => {
                 collections: collectionList,
                 currentCollection: action.collection
             };
+        case type.deleteResult:
+            if (action.hasError) {
+                message.error({content: 'Collection could not be deleted.', key: type.delete, duration: 2});
+                return state;
+            }
+            message.success({content: 'Collection deleted.', key: type.delete, duration: 2});
+
+            let undeletedCollections = state.collections.filter((collection) => collection.id !== action.id);
+
+            return {
+                ...state,
+                collections: undeletedCollections
+            };
         default:
             return state;
     }
