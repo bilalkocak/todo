@@ -6,16 +6,37 @@ body {
   .header {
     display: flex;
     justify-content: space-between;
+
+    div:first-child {
+      display: flex;
+
+      .headerItem {
+        width: 110px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+        transition: background-color 500ms ease;
+        font-size: 14px;
+        padding: 10px;
+        box-sizing: border-box;
+        height: 62px;
+
+        &:hover {
+          background-color: $buttonBackground;
+        }
+      }
+    }
   }
 
-  .customLayout{
+  .customLayout {
     background: $primaryBackground;
 
     .layoutContent {
       width: 100%;
       padding: 20px;
       box-sizing: border-box;
-      max-width: 740px;
+      max-width: 940px;
       margin: auto;
     }
   }

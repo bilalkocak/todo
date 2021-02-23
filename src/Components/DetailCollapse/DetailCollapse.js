@@ -1,41 +1,24 @@
 import React from 'react';
-import {Doughnut} from "@reactchartjs/react-chart.js";
 import {Collapse} from "react-collapse";
-import {filteredTasks} from "../../helper";
+import DoughnutChart from "../DoughnutChart/DoughnutChart";
+import PropTypes from 'prop-types';
+
+import './DetailCollapse.scss'
 
 
-const DetailCollapse = ({isOpen, collection, tasks}) => {
-    const data = {
-        labels: ['Uncompleted', 'Completed'],
-        datasets: [
-            {
-                data: [filteredTasks(tasks).unCompleted.length, filteredTasks(tasks).completed.length],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(75, 192, 192, 1)',
-                ],
-                borderWidth: 1,
-            },
-        ],
-    }
+const DetailCollapse = ({isOpen, tasks}) => {
+
     return (
         <Collapse isOpened={isOpen} initialStyle={{height: '0px', overflow: 'hidden'}}>
-            <div className={'chart'}>
-                <Doughnut data={data} options={{
-                    legend: {
-                        labels: {
-                            fontColor: 'white',
-                            fontSize: 18
-                        }
-                    },
-                }}/>
+            <div className={'collapse'}>
+                <DoughnutChart tasks={tasks}/>
             </div>
         </Collapse>
     );
 };
+
+DetailCollapse.propTypes = {
+    tasks: PropTypes.array.isRequired
+}
 
 export default DetailCollapse;

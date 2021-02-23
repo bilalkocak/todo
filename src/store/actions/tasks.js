@@ -37,3 +37,12 @@ export const deleteTask = (id) => {
     return {type: type.delete, id}
 }
 
+export const fetchAllTasksResult = (hasError, tasks) => {
+    return {type: type.fetchAllResult, hasError, tasks}
+}
+
+export const fetchAllTasks = (id) => {
+    return {type: type.fetchAll, id}
+}
+
+

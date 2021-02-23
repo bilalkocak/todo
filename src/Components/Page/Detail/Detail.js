@@ -53,7 +53,7 @@ const Detail = () => {
             cancelText: 'No',
             onOk() {
                 dispatch(deleteCollection(collection.id))
-                history.push('/')
+                history.push('/collection')
             },
             onCancel() {
                 console.log('Cancel');

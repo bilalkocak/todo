@@ -1,0 +1,44 @@
+@import "src/styles/Colors.scss";
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .generalStats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .ant-statistic {
+        width: 37%;
+
+        .ant-statistic-title {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .motivationFace {
+      display: flex;
+      flex-direction: column;
+      color: $faceYellow;
+      font-size: 300px;
+      align-items: center;
+
+      h3{
+        margin-top: 10px;
+      }
+
+    }
+
+  }
+
+}

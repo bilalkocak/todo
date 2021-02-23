@@ -18,3 +18,15 @@ export const filteredTasks = (taskList) => {
     })
     return tasks;
 }
+
+export const motivationRate = (taskList) => {
+    let total = 0;
+    let count = 0;
+    taskList.forEach(task => {
+        total += task.motivation ? task.motivation : 0
+        count++
+    })
+    return (total / count * 5).toFixed(2);
+}
+
+

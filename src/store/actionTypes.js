@@ -7,7 +7,9 @@ export const task = {
     updateResult: 'UPDATE_TASK_RESULT',
     delete: 'DELETE_TASK',
     deleteResult: 'DELETE_TASK_RESULT',
-    setCurrent: 'SET_CURRENT_TASK'
+    setCurrent: 'SET_CURRENT_TASK',
+    fetchAll: 'FETCH_ALL_TASK',
+    fetchAllResult: 'FETCH_ALL_TASK_RESULT'
 }
 
 export const collection = {

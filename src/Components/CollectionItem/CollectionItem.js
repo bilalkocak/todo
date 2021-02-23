@@ -13,7 +13,7 @@ const CollectionItem = ({collection}) => {
     const history = useHistory()
 
     return (
-        <div onClick={() => history.push(`/detail/${collection.id}`)} className={'collectionContainer'}>
+        <div onClick={() => history.push(`/collection/detail/${collection.id}`)} className={'collectionContainer'}>
             <div className={'collectionIcon'} style={{backgroundColor: collection.color}}>
                 <FolderFilled/>
             </div>

@@ -6,8 +6,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCurrentTask} from "../../store/actions/tasks";
 import {updateTask} from "../../store/actions/tasks";
 import {FrownOutlined, MehOutlined, SmileOutlined} from "@ant-design/icons";
-
-
 const customIcons = {
     1: <FrownOutlined/>,
     2: <FrownOutlined/>,

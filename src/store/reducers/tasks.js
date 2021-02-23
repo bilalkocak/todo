@@ -16,6 +16,14 @@ export default (state = initialState, action) => {
                 ...state,
                 tasks: action.tasks,
             };
+        case type.fetchAllResult:
+            if (action.hasError) {
+                return state;
+            }
+            return {
+                ...state,
+                tasks: action.tasks,
+            };
         case type.addResult:
             if (action.hasError) {
                 message.error({content: 'Task could not be created.', key: type.add, duration: 2});
