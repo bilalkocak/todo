@@ -30,17 +30,19 @@ const Dashboard = () => {
             <section className={'stats'}>
                 <Title>Welcome</Title>
 
-                <div className="motivationFace">
-                    {customIcons[Math.round(motivationRate(tasks))]}
-                    <Title level={4}>Motivation Status: {motivationRate(tasks)}</Title>
-                </div>
-                <div className={'generalStats'}>
-                    <Statistic title="Task Counts" value={filteredTasks(tasks).completed.length}
-                               suffix={`/ ${tasks.length}`}/>
-                    <Statistic title="Collection Counts" value={collections.length}/>
+                <div className={'content'}>
+                    <div className="motivationFace fade-in">
+                        {customIcons[Math.round(motivationRate(tasks))]}
+                        <Title level={4}>Motivation Status: {motivationRate(tasks)}</Title>
+                    </div>
+                    <div className={'generalStats'}>
+                        <Statistic title="Task Counts" value={filteredTasks(tasks).completed.length}
+                                   suffix={`/ ${tasks.length}`}/>
+                        <Statistic title="Collection Counts" value={collections.length}/>
 
-                    <Statistic title="Uncompleted" value={filteredTasks(tasks).unCompleted.length}/>
-                    <Statistic title="Completed" value={filteredTasks(tasks).completed.length}/>
+                        <Statistic title="Uncompleted" value={filteredTasks(tasks).unCompleted.length}/>
+                        <Statistic title="Completed" value={filteredTasks(tasks).completed.length}/>
+                    </div>
                 </div>
 
             </section>
