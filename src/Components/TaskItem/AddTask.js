@@ -21,7 +21,7 @@ const AddTask = () => {
     return (
         <div>
             <div className={`addTaskInput`}>
-                <div className={'addTaskIcon'}><PlusOutlined/></div>
+                <div className={'addTaskIcon'} style={{ backgroundColor: collection?.color }}><PlusOutlined/></div>
                 <input onKeyDown={handleKeyDown} placeholder={'Add task'} value={text} onChange={(e) => onChange(e)}
                        type="text"/>
             </div>

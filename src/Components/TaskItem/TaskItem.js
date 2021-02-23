@@ -4,13 +4,14 @@ import {Modal} from "antd";
 import {CheckOutlined, EditOutlined, DeleteOutlined} from "@ant-design/icons";
 import PropTypes from "prop-types";
 import {updateTask, deleteTask, setCurrentTask} from "../../store/actions/tasks";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ExclamationCircleOutlined} from "@ant-design/icons";
 
 const {confirm} = Modal;
 
 const TaskItem = ({task}) => {
     const dispatch = useDispatch();
+    const currentCollection = useSelector(state => state.collections.currentCollection)
 
 
     const _deleteTask = () => {
@@ -47,7 +48,11 @@ const TaskItem = ({task}) => {
     return (
         <div className={`taskItemContainer`}>
             <div className={'taskItemContainerLeft'} onClick={() => toggleCheck()}>
-                <div className={`taskItemCheckbox ${task.isDone && 'active'}`}>
+                <div className={`taskItemCheckbox ${task.isDone && 'active'}`}
+                     style={{
+                         borderColor: currentCollection.color,
+                         backgroundColor: task.isDone ? currentCollection?.color : 'transparent'
+                     }}>
                     {
                         task.isDone && <CheckOutlined/>
                     }

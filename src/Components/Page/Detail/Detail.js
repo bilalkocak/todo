@@ -67,7 +67,7 @@ const Detail = () => {
                     <div className={'customButton backButton'} onClick={() => history.push('/')}>
                         <LeftOutlined/>
                     </div>
-                    <Title level={3}>{collection?.name}</Title>
+                    <Title>{collection?.name}</Title>
                 </div>
                 <div className={'detailHeaderRight'}>
                     <div className={'customButton button'} onClick={() => _editCollection()}>
@@ -79,8 +79,11 @@ const Detail = () => {
                 </div>
             </div>
             <TaskList/>
-            <CollectionModal toggle={toggleModal} isModalVisible={isModalVisible} mode={collectionModalModes.edit}
-                             title={'Edit Collection'} submit={updateCollection}/>
+            {
+                collection &&
+                <CollectionModal toggle={toggleModal} isModalVisible={isModalVisible} mode={collectionModalModes.edit}
+                                 title={'Edit Collection'} submit={updateCollection}/>
+            }
         </div>
     );
 };

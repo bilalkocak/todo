@@ -42,12 +42,11 @@ const Collections = () => {
                     <Title level={2}>You have no collections.</Title>
                 )
             }
-            {
-                currentCollection &&
-                <CollectionModal collection={currentCollection} title={'Add Collection'} isModalVisible={isModalVisible}
-                                 toggle={toggleModal}
-                                 mode={collectionModalModes.add} submit={addCollection}/>
-            }
+
+            <CollectionModal collection={currentCollection} title={'Add Collection'} isModalVisible={isModalVisible}
+                             toggle={toggleModal}
+                             mode={collectionModalModes.add} submit={addCollection}/>
+
 
         </div>
     );
