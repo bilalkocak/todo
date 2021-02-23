@@ -20,12 +20,22 @@
     border: 2px solid $inputHover;
   }
 }
+
 .collectionModalContent {
+
+  .motivation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    font-size: 14px;
+  }
 
   .collectionModalColor {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     .option {
       border: 3px solid;
       height: 50px;

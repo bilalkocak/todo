@@ -1,15 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import {Modal, message} from 'antd';
+import {Modal, message, Rate} from 'antd';
 
 import './Modals.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentTask} from "../../store/actions/tasks";
 import {updateTask} from "../../store/actions/tasks";
+import {FrownOutlined, MehOutlined, SmileOutlined} from "@ant-design/icons";
 
+
+const customIcons = {
+    1: <FrownOutlined/>,
+    2: <FrownOutlined/>,
+    3: <MehOutlined/>,
+    4: <SmileOutlined/>,
+    5: <SmileOutlined/>,
+};
 
 const initialData = {
     text: "",
-    date: ""
+    date: "",
+    motivation: 0
 }
 const TaskModal = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -60,6 +70,10 @@ const TaskModal = () => {
 
     };
 
+    const onChangeMotivation = (e) => {
+        setData({...data, motivation: e})
+    }
+
 
     return (
         <>
@@ -69,6 +83,11 @@ const TaskModal = () => {
                 <div className={'collectionModalContent'}>
                     <input type="text" placeholder={'Task text'} name={'text'}
                            onChange={(e) => onChangeData(e.target)} value={data.text} className={'modalInput'}/>
+                    <div className="motivation">
+                        How is your motivation ?<Rate value={data.motivation} onChange={(e) => onChangeMotivation(e)}
+                                                      style={{fontSize: 24, marginLeft: 15}}
+                                                      character={({index}) => customIcons[index + 1]}/>
+                    </div>
 
                 </div>
                 <div className="collectionModalFooter">
