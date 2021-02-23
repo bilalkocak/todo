@@ -6,14 +6,30 @@ import {fetchAllTasks} from "../../../store/actions/tasks";
 import './Dashboard.scss'
 import {filteredTasks, motivationRate} from "../../../helper";
 import {FrownOutlined, MehOutlined, SmileOutlined} from "@ant-design/icons";
+import {collectionColors} from "../../../constant";
 
 const {Title} = Typography;
 const customIcons = {
-    1: <FrownOutlined/>,
-    2: <FrownOutlined/>,
-    3: <MehOutlined/>,
-    4: <SmileOutlined/>,
-    5: <SmileOutlined/>,
+    1: {
+        icon: <FrownOutlined/>,
+        color: collectionColors[3]
+    },
+    2: {
+        icon: <FrownOutlined/>,
+        color: collectionColors[3]
+    },
+    3: {
+        icon: <MehOutlined/>,
+        color: collectionColors[1]
+    },
+    4: {
+        icon: <SmileOutlined/>,
+        color: collectionColors[5]
+    },
+    5: {
+        icon: <SmileOutlined/>,
+        color: collectionColors[5]
+    }
 };
 
 const Dashboard = () => {
@@ -31,8 +47,9 @@ const Dashboard = () => {
                 <Title>Welcome</Title>
 
                 <div className={'content'}>
-                    <div className="motivationFace fade-in">
-                        {customIcons[Math.round(motivationRate(tasks))]}
+                    <div className="motivationFace fade-in"
+                         style={{color: customIcons[Math.round(motivationRate(tasks))]?.color}}>
+                        {customIcons[Math.round(motivationRate(tasks))]?.icon}
                         <Title level={4}>Motivation Status: {motivationRate(tasks)}</Title>
                     </div>
                     <div className={'generalStats'}>
