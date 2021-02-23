@@ -6,7 +6,6 @@ import {fetchAllTasks} from "../../../store/actions/tasks";
 import './Dashboard.scss'
 import {filteredTasks, motivationRate} from "../../../helper";
 import {FrownOutlined, MehOutlined, SmileOutlined} from "@ant-design/icons";
-import DoughnutChart from "../../DoughnutChart/DoughnutChart";
 
 const {Title} = Typography;
 const customIcons = {
@@ -27,24 +26,24 @@ const Dashboard = () => {
     }, [])
     return (
         <div className={'dashboardContainer'}>
-            <Title>Dashboard</Title>
-            <section>
+
+            <section className={'stats'}>
+                <Title>Welcome</Title>
+
+                <div className="motivationFace">
+                    {customIcons[Math.round(motivationRate(tasks))]}
+                    <Title level={4}>Motivation Status: {motivationRate(tasks)}</Title>
+                </div>
                 <div className={'generalStats'}>
                     <Statistic title="Task Counts" value={filteredTasks(tasks).completed.length}
                                suffix={`/ ${tasks.length}`}/>
                     <Statistic title="Collection Counts" value={collections.length}/>
 
-                    <Statistic title="Uncompleted Tasks" value={filteredTasks(tasks).unCompleted.length}/>
-                    <Statistic title="Completed Tasks" value={filteredTasks(tasks).completed.length}/>
+                    <Statistic title="Uncompleted" value={filteredTasks(tasks).unCompleted.length}/>
+                    <Statistic title="Completed" value={filteredTasks(tasks).completed.length}/>
                 </div>
-                <div className="motivationFace">
-                    {customIcons[Math.round(motivationRate(tasks))]}
-                    <Title level={3}>Motivation Status: {motivationRate(tasks)}</Title>
-                </div>
+
             </section>
-            {
-                tasks.length > 0 && <DoughnutChart tasks={tasks}/>
-            }
         </div>
     );
 };

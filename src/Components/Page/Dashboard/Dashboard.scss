@@ -5,40 +5,74 @@
   flex-direction: column;
   align-items: center;
 
-  section {
+  .stats {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+
+    .motivationFace {
+      display: flex;
+      flex-direction: column;
+      color: $faceYellow;
+      font-size: 10em;
+      align-items: center;
+
+      h4 {
+        margin-top: 20px;
+      }
+
+    }
 
     .generalStats {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      width: 50%;
 
       .ant-statistic {
-        width: 37%;
+        width: 35%;
+        margin-top: 30px;
 
         .ant-statistic-title {
-          font-size: 18px;
+          font-size: 1.2em;
         }
       }
     }
 
-    .motivationFace {
-      display: flex;
-      flex-direction: column;
-      color: $faceYellow;
-      font-size: 300px;
-      align-items: center;
-
-      h3{
-        margin-top: 10px;
-      }
-
-    }
 
   }
 
+
+}
+
+@media only screen and (max-width: 640px) {
+  .dashboardContainer {
+    .stats {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 35%;
+
+
+      .generalStats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100% !important;
+
+        .ant-statistic {
+          width: 40% !important;
+
+          .ant-statistic-title {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
 }

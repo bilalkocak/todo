@@ -27,7 +27,7 @@ const DoughnutChart = ({tasks}) => {
             legend: {
                 labels: {
                     fontColor: 'white',
-                    fontSize: 18
+                    fontSize: 14
                 }
             },
         }}/>

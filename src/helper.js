@@ -23,10 +23,13 @@ export const motivationRate = (taskList) => {
     let total = 0;
     let count = 0;
     taskList.forEach(task => {
-        total += task.motivation ? task.motivation : 0
-        count++
+        if (task.motivation) {
+            total += task.motivation
+            count++
+        }
+
     })
-    return (total / count * 5).toFixed(2);
+    return (total / count).toFixed(2);
 }
 
 
