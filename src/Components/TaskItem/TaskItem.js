@@ -50,7 +50,7 @@ const TaskItem = ({task}) => {
             <div className={'taskItemContainerLeft'} onClick={() => toggleCheck()}>
                 <div className={`taskItemCheckbox ${task.isDone && 'active'}`}
                      style={{
-                         borderColor: currentCollection.color,
+                         borderColor: currentCollection?.color,
                          backgroundColor: task.isDone ? currentCollection?.color : 'transparent'
                      }}>
                     {

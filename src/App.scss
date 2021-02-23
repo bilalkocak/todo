@@ -3,6 +3,15 @@
 $modalBorderRadius: 8px;
 $popoverBorderRadius: 8px;
 body {
+  .ReactCollapse--collapse {
+    border-radius: 10px;
+    transition: height 500ms;
+  }
+
+  .ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+    padding-left: none;
+  }
+
   .ant-back-top {
     * {
       border-radius: 100%;

@@ -1,16 +1,14 @@
 import React from 'react';
 import TaskItem from "../TaskItem/TaskItem";
 import AddTask from "../TaskItem/AddTask";
-import {Typography} from "antd";
-import {useSelector} from "react-redux";
+import {Typography, Empty} from "antd";
 import TaskModal from "../Modal/TaskModal";
 import {filteredTasks} from "../../helper";
 
 const {Title} = Typography;
 
 
-const TaskList = () => {
-        const tasks = useSelector(state => state.tasks.tasks)
+const TaskList = ({tasks}) => {
 
 
         return (
@@ -27,18 +25,28 @@ const TaskList = () => {
                                     )
                                 })
                             }
-                            <Title level={5}>Completed - {filteredTasks(tasks).completed.length}</Title>
-                            {
-                                filteredTasks(tasks).completed.map((task) => {
-                                    return (
-                                        <TaskItem key={'task-' + task.id} task={task}/>
-                                    )
-                                })
-                            }</>
+                            {tasks.length ? (
+                                    <>
+
+                                        <Title level={5}>Completed - {filteredTasks(tasks).completed.length}</Title>
+                                        {
+                                            filteredTasks(tasks).completed.map((task) => {
+                                                return (
+                                                    <TaskItem key={'task-' + task.id} task={task}/>
+                                                )
+                                            })
+                                        }
+                                    </>
+                                ) :
+                                <div className={'emptyArea'}>
+                                    <Empty description={'No task'}/>
+                                </div>
+
+                            }
+                        </>
                     )
                 }
                 <TaskModal/>
-
             </div>
         );
     }

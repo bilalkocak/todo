@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {
-    LeftOutlined, DeleteOutlined, EditOutlined, ExclamationCircleOutlined
+    LeftOutlined, DeleteOutlined, EditOutlined, ExclamationCircleOutlined, PieChartOutlined
 } from "@ant-design/icons";
 import './Detail.scss'
 import {Modal, Typography} from "antd";
 import {useHistory, useParams} from 'react-router-dom'
 import {collectionModalModes} from "../../../constant";
 import {useSelector, useDispatch} from "react-redux";
+import DetailCollapse from "../../DetailCollapse/DetailCollapse";
 import TaskList from "../../TaskList/TaskList";
 import {
     updateCollection,
@@ -17,15 +18,20 @@ import {
 import {fetchTasks} from "../../../store/actions/tasks";
 import CollectionModal from "../../Modal/CollectionModal";
 
+
 const {Title} = Typography;
 const {confirm} = Modal;
+
 
 const Detail = () => {
     const history = useHistory()
     const {id} = useParams();
     const dispatch = useDispatch();
     const collection = useSelector(state => state.collections.currentCollection)
+    const tasks = useSelector(state => state.tasks.tasks)
+
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isOpenChart, setIsOpenChart] = useState(false);
 
 
     const _editCollection = () => {
@@ -69,7 +75,12 @@ const Detail = () => {
                     </div>
                     <Title>{collection?.name}</Title>
                 </div>
+
+
                 <div className={'detailHeaderRight'}>
+                    <div className={'customButton button'} onClick={() => setIsOpenChart(!isOpenChart)}>
+                        <PieChartOutlined/>
+                    </div>
                     <div className={'customButton button'} onClick={() => _editCollection()}>
                         <EditOutlined/>
                     </div>
@@ -78,7 +89,8 @@ const Detail = () => {
                     </div>
                 </div>
             </div>
-            <TaskList/>
+            <DetailCollapse isOpen={isOpenChart} collection={collection} tasks={tasks}/>
+            <TaskList tasks={tasks}/>
             {
                 collection &&
                 <CollectionModal toggle={toggleModal} isModalVisible={isModalVisible} mode={collectionModalModes.edit}
