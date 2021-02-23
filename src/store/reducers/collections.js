@@ -3,7 +3,7 @@ import {message} from "antd";
 
 const initialState = {
     collections: [],
-    currentCollection: null
+    currentCollection: {}
 };
 
 export default (state = initialState, action) => {

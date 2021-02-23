@@ -80,7 +80,7 @@ const Detail = () => {
                         <LeftOutlined/>
                     </div>
                     <div className={'title'}>
-                        <span>{collection?.name.slice(0, 20)}</span>
+                        <span>{collection?.name?.slice(0, 20)}</span>
                     </div>
                 </div>
 
