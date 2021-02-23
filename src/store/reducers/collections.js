@@ -18,7 +18,10 @@ export default (state = initialState, action) => {
             };
         case type.fetchByIdResult:
             if (action.hasError) {
-                return state;
+                return {
+                    ...state,
+                    currentCollection: null
+                }
             }
             return {
                 ...state,

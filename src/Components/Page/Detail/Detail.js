@@ -3,7 +3,7 @@ import {
     LeftOutlined, DeleteOutlined, EditOutlined, ExclamationCircleOutlined, PieChartOutlined
 } from "@ant-design/icons";
 import './Detail.scss'
-import {Modal, Typography} from "antd";
+import {Modal} from "antd";
 import {useHistory, useParams} from 'react-router-dom'
 import {collectionModalModes} from "../../../constant";
 import {useSelector, useDispatch} from "react-redux";
@@ -19,7 +19,6 @@ import {fetchTasks} from "../../../store/actions/tasks";
 import CollectionModal from "../../Modal/CollectionModal";
 
 
-const {Title} = Typography;
 const {confirm} = Modal;
 
 
@@ -66,14 +65,23 @@ const Detail = () => {
         dispatch(fetchCollectionById(id))
         dispatch(fetchTasks(id))
     }, [])
+
+    useEffect(() => {
+        if (!collection){
+            // collection doesn't exist
+            history.push('/collection')
+        }
+    }, [collection])
     return (
         <div className={'detailContainer'}>
             <div className="detailHeader">
                 <div className={'detailHeaderLeft'}>
-                    <div className={'customButton backButton'} onClick={() => history.push('/')}>
+                    <div className={'customButton backButton'} onClick={() => history.push('/collection')}>
                         <LeftOutlined/>
                     </div>
-                    <Title>{collection?.name}</Title>
+                    <div className={'title'}>
+                        <span>{collection?.name.slice(0, 20)}</span>
+                    </div>
                 </div>
 
 

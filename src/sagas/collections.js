@@ -1,4 +1,4 @@
-import {call, put, takeLatest, delay} from "redux-saga/effects";
+import {call, put, takeLatest} from "redux-saga/effects";
 import {collection as type} from "../store/actionTypes";
 import {
     fetchCollectionsApi,
@@ -15,7 +15,7 @@ import {
     deleteCollectionResult
 } from "../store/actions/collections"
 import {message} from "antd";
-import {deleteTaskResult} from "../store/actions/tasks";
+import {useHistory} from "react-router-dom";
 
 export function* fetchCollections() {
     try {
@@ -33,8 +33,8 @@ export function* fetchCollectionById(action) {
         const response = yield call(fetchCollectionByIdApi, id);
         yield put(fetchCollectionByIdResult(false, response.data));
     } catch (e) {
+        console.log(e)
         yield put(fetchCollectionByIdResult(true));
-
     }
 }
 

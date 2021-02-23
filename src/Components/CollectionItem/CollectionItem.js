@@ -18,8 +18,8 @@ const CollectionItem = ({collection}) => {
                 <FolderFilled/>
             </div>
             <div className={'collectionInfo'}>
-                <Title level={4}>{collection.name}</Title>
-                <Text type="secondary">{collection.desc}</Text>
+                <Title level={4}>{collection.name.slice(0, 30)}</Title>
+                <Text type="secondary">{collection.desc.slice(0, 40)}</Text>
             </div>
         </div>
     );
