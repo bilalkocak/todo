@@ -39,7 +39,8 @@ const TaskList = ({tasks}) => {
                                     </>
                                 ) :
                                 <div className={'emptyArea'}>
-                                    <Empty description={'No task'}/>
+                                    <Empty description={''}/>
+                                    <Title level={2}>You have no task.</Title>
                                 </div>
 
                             }
